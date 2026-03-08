@@ -440,6 +440,14 @@
         <div id="ratingText">Tap a number to rate your experience</div>
       </div>
 
+      <!-- Suggestions -->
+      <div class="fb-card">
+        <div class="q-label"><div class="qnum">5</div>Any Suggestions?</div>
+        <div class="field">
+          <textarea id="suggestions" placeholder="Share your thoughts, ideas or suggestions to help us improve…" style="min-height:110px;"></textarea>
+        </div>
+      </div>
+
       <div class="submit-row">
         <button class="btn" id="submitBtn" onclick="submitForm()">Submit Feedback →</button>
       </div>
@@ -479,7 +487,8 @@
     if(!q1||!q3||!rating){alert('⚠️ Please answer all feedback questions.');return;}
     const btn=document.getElementById('submitBtn');
     btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Submitting…';
-    const payload={name,company,email,mobile,designation:desig,location:loc,q1,q2,q3,rating,timestamp:new Date().toLocaleString('en-IN')};
+    const suggestions=g('suggestions');
+    const payload={name,company,email,mobile,designation:desig,location:loc,q1,q2,q3,rating,suggestions,timestamp:new Date().toLocaleString('en-IN')};
     try{await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch(e){}
     document.getElementById('form-area').style.display='none';
     document.getElementById('success-msg').style.display='block';

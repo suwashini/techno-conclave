@@ -332,7 +332,7 @@
     </div>
     <div class="badge">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      500+ Delegates
+      200+ Delegates
     </div>
     <div class="badge green">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -404,47 +404,27 @@
       <div class="fb-card">
         <div class="q-label"><div class="qnum">2</div>What did you like most about the stall?</div>
         <div class="opt-row" style="margin-bottom:12px;">
-          <input type="radio" name="q2" id="q2a" class="op-r" value="Display & Visuals"/>
-          <label for="q2a" class="op-label">🎨 Display & Visuals</label>
-          <input type="radio" name="q2" id="q2b" class="op-r" value="Product Demo"/>
-          <label for="q2b" class="op-label">🔌 Product Demo</label>
+          <input type="radio" name="q2" id="q2a" class="op-r" value="Display"/>
+          <label for="q2a" class="op-label">🖼️ Display</label>
+          <input type="radio" name="q2" id="q2b" class="op-r" value="Visuals"/>
+          <label for="q2b" class="op-label">🎨 Visuals</label>
           <input type="radio" name="q2" id="q2c" class="op-r" value="Team Interaction"/>
           <label for="q2c" class="op-label">🤝 Team Interaction</label>
           <input type="radio" name="q2" id="q2d" class="op-r" value="Information Quality"/>
           <label for="q2d" class="op-label">📋 Information Quality</label>
-          <input type="radio" name="q2" id="q2e" class="op-r" value="Technology Showcased"/>
-          <label for="q2e" class="op-label">💡 Technology Showcased</label>
-        </div>
-        <div class="field">
-          <input type="text" id="q2other" placeholder="Or describe what you liked most…"/>
         </div>
       </div>
 
       <div class="fb-card">
-        <div class="q-label"><div class="qnum">3</div>How was the worth &amp; quality of the stall content?</div>
-        <div class="emoji-row">
-          <input type="radio" name="q3" id="q3a" class="em-r" value="Outstanding"/>
-          <label for="q3a" class="em-label"><span class="em">⭐</span>Outstanding</label>
-          <input type="radio" name="q3" id="q3b" class="em-r" value="Very Good"/>
-          <label for="q3b" class="em-label"><span class="em">👍</span>Very Good</label>
-          <input type="radio" name="q3" id="q3c" class="em-r" value="Satisfactory"/>
-          <label for="q3c" class="em-label"><span class="em">✅</span>Satisfactory</label>
-          <input type="radio" name="q3" id="q3d" class="em-r" value="Needs Improvement"/>
-          <label for="q3d" class="em-label"><span class="em">🔧</span>Needs Work</label>
-        </div>
-      </div>
-
-      <div class="fb-card">
-        <div class="q-label"><div class="qnum">4</div>Overall rating (1 – 10)</div>
+        <div class="q-label"><div class="qnum">3</div>Are you happy about our stall?</div>
         <div class="num-row" id="ratingRow"></div>
         <div id="ratingText">Tap a number to rate your experience</div>
       </div>
 
-      <!-- Suggestions -->
       <div class="fb-card">
-        <div class="q-label"><div class="qnum">5</div>Any Suggestions?</div>
+        <div class="q-label"><div class="qnum">4</div>Your Overall Feedback</div>
         <div class="field">
-          <textarea id="suggestions" placeholder="Share your thoughts, ideas or suggestions to help us improve…" style="min-height:110px;"></textarea>
+          <textarea id="suggestions" placeholder="Share your overall feedback, thoughts or experience about the stall…" style="min-height:110px;"></textarea>
         </div>
       </div>
 
@@ -484,7 +464,7 @@
     const name=g('name'),company=g('company'),email=g('email'),mobile=g('mobile'),desig=g('designation'),loc=g('location');
     const q1=radio('q1'),q2=radio('q2')||g('q2other'),q3=radio('q3'),rating=radio('rating');
     if(!name||!company||!email||!mobile||!desig||!loc){alert('⚠️ Please fill in all registration fields.');return;}
-    if(!q1||!q3||!rating){alert('⚠️ Please answer all feedback questions.');return;}
+    if(!q1||!rating){alert('⚠️ Please answer all feedback questions.');return;}
     const btn=document.getElementById('submitBtn');
     btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Submitting…';
     const suggestions=g('suggestions');
